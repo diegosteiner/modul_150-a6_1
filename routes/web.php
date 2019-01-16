@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +20,13 @@ Route::get('/', function () {
  * Display All Tasks
  */
 Route::get('/homework', function () {
+
+    $homework = \App\Homework::orderBy('created_at', 'asc')->get();
+
+    return view('homework', [
+        'homework' => $homework,
+    ]);
+
     return view('homework');
 });
 
@@ -26,12 +34,32 @@ Route::get('/homework', function () {
  * Add A New Task
  */
 Route::post('/homework', function (Request $request) {
-    //
+    $validator = Validator::make($request->all(), [
+        'task' => 'required|max:255',
+        'subject' => 'required',
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('/homework')
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    $homework = new \App\Homework;
+    $homework->subject = $request->subject;
+    $homework->task = $request->task;
+    $homework->save();
+
+    return redirect('/homework');
+
 });
 
 /**
  * Delete An Existing Task
  */
 Route::delete('/homework/{id}', function ($id) {
-    //
+    Homework::findOrFail($id)->delete();
+
+    return redirect('/homework');
+
 });
