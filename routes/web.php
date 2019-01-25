@@ -58,7 +58,7 @@ Route::post('/homework', function (Request $request) {
  * Delete An Existing Task
  */
 Route::delete('/homework/{id}', function ($id) {
-    Homework::findOrFail($id)->delete();
+    \App\Homework::findOrFail($id)->delete();
 
     return redirect('/homework');
 
