@@ -13,7 +13,7 @@ class CreateHomeworkTable extends Migration
      */
     public function up()
     {
-        Schema::create('homeworks', function (Blueprint $table) {
+        Schema::create('homework', function (Blueprint $table) {
             $table->increments('id');
             $table->string('subject');
             $table->string('task');
