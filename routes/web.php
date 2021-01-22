@@ -11,61 +11,13 @@
 |
  */
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-/**
- * Display All Tasks
- */
-Route::get('/homework', function () {
-
-    $homework = \App\Homework::orderBy('created_at', 'asc')->get();
-
-    return view('homework', [
-        'homework' => $homework,
-    ]);
-
-    return view('homework');
-});
-
-/**
- * Add A New Task
- */
-Route::post('/homework', function (Request $request) {
-    $validator = Validator::make($request->all(), [
-        'task' => 'required|max:255',
-        'subject' => 'required',
-        'due' => 'required',
-    ]);
-
-    if ($validator->fails()) {
-        return redirect('/homework')
-            ->withInput()
-            ->withErrors($validator);
-    }
-
-    $homework = new \App\Homework;
-    $homework->subject = $request->subject;
-    $homework->task = $request->task;
-    $homework->due = $request->due;
-    $homework->save();
-
-    return redirect('/homework');
-});
-
-/**
- * Delete An Existing Task
- */
-Route::delete('/homework/{id}', function ($id) {
-    \App\Homework::findOrFail($id)->delete();
-
-    return redirect('/homework');
-});
-
+Route::get('/homework', [\App\Http\Controllers\Homework::class, 'index']);
+Route::post('/homework', [\App\Http\Controllers\Homework::class, 'create']);
+Route::delete('/homework/{id}', [\App\Http\Controllers\Homework::class, 'delete']);
 Route::get('/hello', function () {
     return view("hello");
 });
