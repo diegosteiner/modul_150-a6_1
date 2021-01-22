@@ -87,6 +87,8 @@
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
+                                        <a class="btn btn-sm btn-outline-primary" href="/homework/{{ $homework_item->id }}/edit">Edit</a>
+                                    &nbsp;
                                         <button class="btn btn-sm btn-outline-danger">Delete</button>
                                     </form>
                                 </td>
