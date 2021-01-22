@@ -65,5 +65,5 @@ Route::delete('/homework/{id}', function ($id) {
 });
 
 Route::get('/hello', function () {
-    return "Hello World!";
+    return view("hello");
 });
