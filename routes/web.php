@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
@@ -51,7 +52,6 @@ Route::post('/homework', function (Request $request) {
     $homework->save();
 
     return redirect('/homework');
-
 });
 
 /**
@@ -61,5 +61,4 @@ Route::delete('/homework/{id}', function ($id) {
     \App\Homework::findOrFail($id)->delete();
 
     return redirect('/homework');
-
 });
