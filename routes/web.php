@@ -27,8 +27,6 @@ Route::get('/homework', function () {
     return view('homework', [
         'homework' => $homework,
     ]);
-
-    return view('homework');
 });
 
 /**
@@ -38,6 +36,7 @@ Route::post('/homework', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'task' => 'required|max:255',
         'subject' => 'required',
+        'due' => '',
     ]);
 
     if ($validator->fails()) {
@@ -49,6 +48,7 @@ Route::post('/homework', function (Request $request) {
     $homework = new \App\Homework;
     $homework->subject = $request->subject;
     $homework->task = $request->task;
+    $homework->due = $request->due;
     $homework->save();
 
     return redirect('/homework');
@@ -61,4 +61,8 @@ Route::delete('/homework/{id}', function ($id) {
     \App\Homework::findOrFail($id)->delete();
 
     return redirect('/homework');
+});
+
+Route::get('/hello', function () {
+    return view("hello");
 });

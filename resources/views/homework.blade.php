@@ -18,9 +18,9 @@
                 <div class="col-sm-6">
                     <select name="subject" id="homework-subject" class="form-control">
                       <option value="Mathematik">Mathematik</option>
-                      <option value="Mathematik">Deutsch</option>
-                      <option value="Mathematik">Englisch</option>
-                      <option value="Mathematik">Geschichte</option>
+                      <option value="Deutsch">Deutsch</option>
+                      <option value="Englisch">Englisch</option>
+                      <option value="Geschichte">Geschichte</option>
                     </select>
                 </div>
             </div>
@@ -32,6 +32,15 @@
                     <input type="text" name="task" id="homework-task" class="form-control">
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="homework-due" class="col-sm-3 control-label">Due at</label>
+
+                <div class="col-sm-6">
+                    <input type="date" name="due" id="homework-due" class="form-control" />
+                </div>
+            </div>
+
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
@@ -53,6 +62,7 @@
                     <thead>
                         <th>Homework</th>
                         <th>Subject</th>
+                        <th>Due</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -64,6 +74,9 @@
                                 </td>
                                 <td class="table-text">
                                     <div>{{ $homework_item->subject }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $homework_item->due }}</div>
                                 </td>
 
                                 <td>
