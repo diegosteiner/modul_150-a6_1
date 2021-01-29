@@ -23,7 +23,7 @@ Route::get('/subjects', function () {
     return view('subjects', [
         'subjects' => $subjects,
     ]);
-});
+})->name('faecher');
 
 Route::post('/subjects', function (Request $request) {
     $validator = Validator::make($request->all(), [
