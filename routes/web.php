@@ -18,7 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('/subjects', function () {
-
     $subjects = \App\Subject::orderBy('name', 'asc')->get();
 
     return view('subjects', [
@@ -55,10 +54,12 @@ Route::delete('/subjects/{id}', function ($id) {
  * Display All Tasks
  */
 Route::get('/homework', function () {
+    $subjects = \App\Subject::orderBy('name', 'asc')->get();
     $homework = \App\Homework::orderBy('created_at', 'asc')->get();
 
     return view('homework', [
         'homework' => $homework,
+        'subjects' => $subjects,
     ]);
 });
 /**
