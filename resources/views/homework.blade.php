@@ -74,7 +74,6 @@
                                     <div>{{ $homework_item->subject }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $homework_item->due }}</div>
                                 </td>
 
                                 <td>
