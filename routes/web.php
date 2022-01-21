@@ -93,7 +93,3 @@ Route::delete('/homework/{id}', function ($id) {
 
     return redirect('/homework');
 });
-
-Route::get('/hello', function () {
-    return view("hello");
-});
