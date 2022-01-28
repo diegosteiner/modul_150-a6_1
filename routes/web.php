@@ -18,6 +18,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/hello', function () {
+    return "Hello, World!";
+});
+
+
 /**
  * Display All Tasks
  */
