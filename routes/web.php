@@ -13,6 +13,8 @@
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Log;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -51,6 +53,7 @@ Route::post('/homework', function (Request $request) {
     $homework = new \App\Homework;
     $homework->subject = $request->subject;
     $homework->task = $request->task;
+    $homework->due = $request->due;
     $homework->save();
 
     return redirect('/homework');

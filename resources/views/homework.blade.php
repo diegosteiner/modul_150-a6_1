@@ -33,6 +33,14 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="homework-due" class="col-sm-3 control-label">Due</label>
+
+                    <div class="col-sm-6">
+                        <input type="date" name="due" id="homework-due" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-6">
                         <button type="submit" class="btn btn-primary">
                             <i class="fa fa-plus"></i> Add Homework
@@ -52,6 +60,7 @@
                     <thead>
                         <th>Homework</th>
                         <th>Subject</th>
+                        <th>Due</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -65,6 +74,7 @@
                                     <div>{{ $homework_item->subject }}</div>
                                 </td>
                                 <td class="table-text">
+                                    <div>{{ $homework_item->due }}</div>
                                 </td>
 
                                 <td>
