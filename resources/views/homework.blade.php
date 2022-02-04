@@ -15,9 +15,9 @@
                     <label for="homework-subject" class="col-sm-3 control-label">Subject</label>
 
                     <div class="col-sm-6">
-                        <select name="subject" id="homework-subject" class="form-control">
+                        <select name="subject_id" id="homework-subject" class="form-control">
                             @foreach ($subjects as $subject)
-                                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
+                                <option value="{{ $subject->id }}">{{ $subject->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -70,7 +70,7 @@
                                     <div>{{ $homework_item->task }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $homework_item->subject }}</div>
+                                    <div>{{ $homework_item->subject->name }}</div>
                                 </td>
                                 <td class="table-text">
                                     <div>{{ $homework_item->due }}</div>

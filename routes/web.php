@@ -43,7 +43,7 @@ Route::get('/homework', function () {
 Route::post('/homework', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'task' => 'required|max:255',
-        'subject' => 'required'
+        'subject_id' => 'required'
     ]);
 
     if ($validator->fails()) {
@@ -53,7 +53,7 @@ Route::post('/homework', function (Request $request) {
     }
 
     $homework = new \App\Homework;
-    $homework->subject = $request->subject;
+    $homework->subject_id = $request->subject_id;
     $homework->task = $request->task;
     $homework->due = $request->due;
     $homework->save();
