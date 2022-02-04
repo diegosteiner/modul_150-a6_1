@@ -9,46 +9,25 @@
             <!-- Display Validation Errors -->
             @include('common.errors')
 
-            {{-- <form action="/homework" method="POST" class="form-horizontal">
+            <form action="/subjects" method="POST" class="form-horizontal">
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label for="homework-subject" class="col-sm-3 control-label">Subject</label>
+                    <label for="subject-name" class="col-sm-3 control-label">Name of the subject</label>
 
                     <div class="col-sm-6">
-                        <select name="subject" id="homework-subject" class="form-control">
-                            <option value="Mathematik">Mathematik</option>
-                            <option value="Deutsch">Deutsch</option>
-                            <option value="Englisch">Englisch</option>
-                            <option value="Geschichte">Geschichte</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="homework-task" class="col-sm-3 control-label">Homework</label>
-
-                    <div class="col-sm-6">
-                        <input type="text" name="task" id="homework-task" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="homework-due" class="col-sm-3 control-label">Due</label>
-
-                    <div class="col-sm-6">
-                        <input type="date" name="due" id="homework-due" class="form-control">
+                        <input type="text" name="name" id="subject-name" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-6">
                         <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-plus"></i> Add Homework
+                            <i class="fa fa-plus"></i> Add Subject
                         </button>
                     </div>
                 </div>
-            </form> --}}
+            </form>
         </div>
 
         @if (count($subjects) > 0)

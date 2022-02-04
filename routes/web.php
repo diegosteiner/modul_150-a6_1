@@ -79,3 +79,21 @@ Route::get('/subjects', function () {
         'subjects' => $subjects
     ]);
 });
+
+Route::post('/subjects', function (Request $request) {
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|max:255',
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('/subjects')
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    $subject = new \App\Subject();
+    $subject->name = $request->name;
+    $subject->save();
+
+    return redirect('/subjects');
+});
