@@ -50,12 +50,12 @@
                                 </td>
 
                                 <td>
-                                    {{-- <form action="/homework/{{ $homework_item->id }}" method="POST">
+                                    <form action="/subjects/{{ $subject->id }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
                                         <button class="btn btn-sm btn-outline-danger">Delete</button>
-                                    </form> --}}
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

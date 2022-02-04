@@ -97,3 +97,12 @@ Route::post('/subjects', function (Request $request) {
 
     return redirect('/subjects');
 });
+
+/**
+ * Delete An Existing Task
+ */
+Route::delete('/subjects/{id}', function ($id) {
+    \App\Subject::findOrFail($id)->delete();
+
+    return redirect('/subjects');
+});
