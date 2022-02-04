@@ -30,9 +30,11 @@ Route::get('/hello', function () {
  */
 Route::get('/homework', function () {
     $homework = \App\Homework::orderBy('created_at', 'asc')->get();
+    $subjects = \App\Subject::orderBy('name', 'asc')->get();
 
     return view('homework', [
         'homework' => $homework,
+        'subjects' => $subjects
     ]);
 });
 /**
