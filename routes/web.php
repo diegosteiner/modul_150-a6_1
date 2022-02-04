@@ -67,3 +67,15 @@ Route::delete('/homework/{id}', function ($id) {
 
     return redirect('/homework');
 });
+
+
+/**
+ * Display All Subjects
+ */
+Route::get('/subjects', function () {
+    $subjects = \App\Subject::orderBy('name', 'asc')->get();
+
+    return view('subjects', [
+        'subjects' => $subjects
+    ]);
+});
