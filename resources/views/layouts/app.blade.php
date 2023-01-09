@@ -7,7 +7,7 @@
 
     <title>Homework</title>
 
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}" />
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>

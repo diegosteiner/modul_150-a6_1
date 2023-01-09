@@ -11,7 +11,7 @@
             <form action="/homework" method="POST" class="form-horizontal">
                 {{ csrf_field() }}
 
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="homework-subject" class="col-sm-3 control-label">Subject</label>
 
                     <div class="col-sm-6">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="homework-task" class="col-sm-3 control-label">Homework</label>
 
                     <div class="col-sm-6">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="homework-due" class="col-sm-3 control-label">Due</label>
 
                     <div class="col-sm-6">
@@ -39,7 +39,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <div class="col-sm-offset-3 col-sm-6">
                         <button type="submit" class="btn btn-primary">
                             <i class="fa fa-plus"></i> Add Homework

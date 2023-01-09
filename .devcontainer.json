@@ -22,7 +22,10 @@
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [],
 
-    "overrideCommand": true
+	"overrideCommand": true,
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {}
+	}
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],

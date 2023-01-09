@@ -29,8 +29,8 @@ Route::get('/hello', function () {
  * Display All Tasks
  */
 Route::get('/homework', function () {
-    $homework = \App\Homework::orderBy('created_at', 'asc')->get();
-    $subjects = \App\Subject::orderBy('name', 'asc')->get();
+    $homework = \App\Models\Homework::orderBy('created_at', 'asc')->get();
+    $subjects = \App\Models\Subject::orderBy('name', 'asc')->get();
 
     return view('homework', [
         'homework' => $homework,
@@ -52,7 +52,7 @@ Route::post('/homework', function (Request $request) {
             ->withErrors($validator);
     }
 
-    $homework = new \App\Homework;
+    $homework = new \App\Models\Homework;
     $homework->subject_id = $request->subject_id;
     $homework->task = $request->task;
     $homework->due = $request->due;
@@ -65,7 +65,7 @@ Route::post('/homework', function (Request $request) {
  * Delete An Existing Task
  */
 Route::delete('/homework/{id}', function ($id) {
-    \App\Homework::findOrFail($id)->delete();
+    \App\Models\Homework::findOrFail($id)->delete();
 
     return redirect('/homework');
 });
@@ -75,7 +75,7 @@ Route::delete('/homework/{id}', function ($id) {
  * Display All Subjects
  */
 Route::get('/subjects', function () {
-    $subjects = \App\Subject::orderBy('name', 'asc')->get();
+    $subjects = \App\Models\Subject::orderBy('name', 'asc')->get();
 
     return view('subjects', [
         'subjects' => $subjects
@@ -93,7 +93,7 @@ Route::post('/subjects', function (Request $request) {
             ->withErrors($validator);
     }
 
-    $subject = new \App\Subject();
+    $subject = new \App\Models\Subject();
     $subject->name = $request->name;
     $subject->save();
 
@@ -104,7 +104,7 @@ Route::post('/subjects', function (Request $request) {
  * Delete An Existing Task
  */
 Route::delete('/subjects/{id}', function ($id) {
-    \App\Subject::findOrFail($id)->delete();
+    \App\Models\Subject::findOrFail($id)->delete();
 
     return redirect('/subjects');
 });

@@ -12,7 +12,7 @@
             <form action="/subjects" method="POST" class="form-horizontal">
                 {{ csrf_field() }}
 
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="subject-name" class="col-sm-3 control-label">Name of the subject</label>
 
                     <div class="col-sm-6">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <div class="col-sm-offset-3 col-sm-6">
                         <button type="submit" class="btn btn-primary">
                             <i class="fa fa-plus"></i> Add Subject
