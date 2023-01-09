@@ -30,11 +30,9 @@ Route::get('/hello', function () {
  */
 Route::get('/homework', function () {
     $homework = \App\Models\Homework::orderBy('created_at', 'asc')->get();
-    $subjects = \App\Models\Subject::orderBy('name', 'asc')->get();
 
     return view('homework', [
         'homework' => $homework,
-        'subjects' => $subjects
     ]);
 });
 /**
@@ -43,7 +41,7 @@ Route::get('/homework', function () {
 Route::post('/homework', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'task' => 'required|max:255',
-        'subject_id' => 'required'
+        'subject' => 'required'
     ]);
 
     if ($validator->fails()) {
@@ -53,9 +51,8 @@ Route::post('/homework', function (Request $request) {
     }
 
     $homework = new \App\Models\Homework;
-    $homework->subject_id = $request->subject_id;
+    $homework->subject = $request->subject;
     $homework->task = $request->task;
-    $homework->due = $request->due;
     $homework->save();
 
     return redirect('/homework');
@@ -68,43 +65,4 @@ Route::delete('/homework/{id}', function ($id) {
     \App\Models\Homework::findOrFail($id)->delete();
 
     return redirect('/homework');
-});
-
-
-/**
- * Display All Subjects
- */
-Route::get('/subjects', function () {
-    $subjects = \App\Models\Subject::orderBy('name', 'asc')->get();
-
-    return view('subjects', [
-        'subjects' => $subjects
-    ]);
-});
-
-Route::post('/subjects', function (Request $request) {
-    $validator = Validator::make($request->all(), [
-        'name' => 'required|max:255',
-    ]);
-
-    if ($validator->fails()) {
-        return redirect('/subjects')
-            ->withInput()
-            ->withErrors($validator);
-    }
-
-    $subject = new \App\Models\Subject();
-    $subject->name = $request->name;
-    $subject->save();
-
-    return redirect('/subjects');
-});
-
-/**
- * Delete An Existing Task
- */
-Route::delete('/subjects/{id}', function ($id) {
-    \App\Models\Subject::findOrFail($id)->delete();
-
-    return redirect('/subjects');
 });

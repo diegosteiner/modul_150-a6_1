@@ -1,7 +1,0 @@
-@extends('layouts.app')
-
-@section('content')
-
-    <h1>Hello, ZLI!</h1>
-
-@endsection
