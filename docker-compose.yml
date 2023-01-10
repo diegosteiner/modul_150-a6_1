@@ -7,6 +7,7 @@ services:
       - .:/app
     ports:
       - 8000:8000
+      - 5173:5173
     # command: ["php", "artisan", "serve", "--host", "0.0.0.0"]
     depends_on:
       - db
