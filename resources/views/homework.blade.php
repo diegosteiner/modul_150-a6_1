@@ -31,7 +31,7 @@
                         <input type="text" name="task" id="homework-task" class="form-control">
                     </div>
                 </div>
-s
+                
                 <div class="form-group mb-3">
                     <div class="col-sm-offset-3 col-sm-6">
                         <button type="submit" class="btn btn-primary">

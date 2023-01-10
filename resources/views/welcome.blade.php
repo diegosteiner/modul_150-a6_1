@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Homework</title>
-        @vite(['resources/css/app.css'])
+
+        <link rel="stylesheet" href="/app.css">
+        <script src="/app.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
