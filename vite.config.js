@@ -10,5 +10,12 @@ export default defineConfig({
     ],
     server: {
         host: true
-    }
+    },
+    build: {
+        manifest: true,
+        outDir: 'public/build',
+        rollupOptions: {
+            input: 'resources/js/app.js',
+        },
+    },
 });

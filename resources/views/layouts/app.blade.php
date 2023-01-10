@@ -7,7 +7,7 @@
 
     <title>Homework</title>
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/js/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
