@@ -7,7 +7,8 @@
 
     <title>Homework</title>
 
-    @vite(['resources/js/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="/app.css">
+    <script src="/app.js"></script>
 </head>
 
 <body>
@@ -17,7 +18,6 @@
         </a>
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="/homework">Homework</a>
-            <a class="nav-item nav-link" href="/subjects">Subjects</a>
         </div>
     </nav>
     @yield('content')
