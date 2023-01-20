@@ -30,6 +30,13 @@
                         <input type="text" name="task" id="homework-task" class="form-control">
                     </div>
                 </div>
+
+                <div class="form-group mb-3">
+                    <label for="homework-due" class="col-sm-3 control-label">Due</label>
+                    <div class="col-sm-6">
+                        <input type="date" name="due" id="homework-due" class="form-control">
+                    </div>
+                </div>
                 
                 <div class="form-group mb-3">
                     <div class="col-sm-offset-3 col-sm-6">
