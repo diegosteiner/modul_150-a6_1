@@ -16,10 +16,9 @@
 
                     <div class="col-sm-6">
                         <select name="subject" id="homework-subject" class="form-control">
-                            <option value="Mathematik">Mathematik</option>
-                            <option value="Mathematik">Deutsch</option>
-                            <option value="Mathematik">Englisch</option>
-                            <option value="Mathematik">Naturwissenschaften</option>
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject }}">{{ $subject }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
