@@ -58,6 +58,7 @@
                     <thead>
                         <th>Homework</th>
                         <th>Subject</th>
+                        <th>Due</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -69,6 +70,9 @@
                                 </td>
                                 <td class="table-text">
                                     <div>{{ $homework_item->subject }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ \Carbon\Carbon::parse($homework_item->due)->format('d. M Y') }}</div>
                                 </td>
 
                                 <td>

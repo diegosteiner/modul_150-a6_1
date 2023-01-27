@@ -28,7 +28,7 @@ Route::get('/hello', function () {
  */
 Route::get('/homework', function () {
     $homework = \App\Models\Homework::orderBy('created_at', 'asc')->get();
-    $subjects = ["Deutsch", "Englisch", "Mathe"];
+    $subjects = ["Deutsch", "Englisch", "Mathe", "Turnen"];
 
     return view('homework', [
         'homework' => $homework,
