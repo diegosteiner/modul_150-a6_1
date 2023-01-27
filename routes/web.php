@@ -28,7 +28,7 @@ Route::get('/hello', function () {
  */
 Route::get('/homework', function () {
     $homework = \App\Models\Homework::orderBy('created_at', 'asc')->get();
-    $subjects = ["Deutsch", "Englisch", "Mathe", "Turnen"];
+    $subjects = \App\Models\Subject::orderBy('name', 'asc')->get();
 
     return view('homework', [
         'homework' => $homework,
@@ -41,7 +41,7 @@ Route::get('/homework', function () {
 Route::post('/homework', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'task' => 'required|max:255',
-        'subject' => 'required',
+        'subject_id' => 'required',
         'due' => 'nullable|date'
     ]);
     
@@ -51,8 +51,9 @@ Route::post('/homework', function (Request $request) {
             ->withErrors($validator);
     }
 
+    $subject = \App\Models\Subject::find($request->subject_id);
     $homework = new \App\Models\Homework;
-    $homework->subject = $request->subject;
+    $homework->subject()->associate($subject);
     $homework->task = $request->task;
     $homework->due = $request->due;
     $homework->save();
@@ -67,4 +68,47 @@ Route::delete('/homework/{id}', function ($id) {
     \App\Models\Homework::findOrFail($id)->delete();
 
     return redirect('/homework');
+});
+
+
+
+
+/**
+ * Display All Tasks
+ */
+Route::get('/subjects', function () {
+    $subjects = \App\Models\Subject::orderBy('name', 'asc')->get();
+
+    return view('subjects', [
+        'subjects' => $subjects
+    ]);
+});
+/**
+ * Add A New Task
+ */
+Route::post('/subjects', function (Request $request) {
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|max:255',
+    ]);
+    
+    if ($validator->fails()) {
+        return redirect('/subject')
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    $subject = new \App\Models\Subject;
+    $subject->name = $request->name;
+    $subject->save();
+
+    return redirect('/subjects');
+});
+
+/**
+ * Delete An Existing Task
+ */
+Route::delete('/subjects/{id}', function ($id) {
+    \App\Models\Subject::findOrFail($id)->delete();
+
+    return redirect('/subjects');
 });
