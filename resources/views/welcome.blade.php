@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://moodle-2.zli.ch">Moodle</a>
+                    <a href="https://moodle.zli.ch">Moodle</a>
                     <a href="/homework">Homework</a>
                 </div>
             </div>
