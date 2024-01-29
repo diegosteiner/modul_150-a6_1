@@ -18,6 +18,7 @@
         </a>
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="/homework">Homework</a>
+            <a class="nav-item nav-link" href="/subjects">Subjects</a>
         </div>
     </nav>
     @yield('content')
