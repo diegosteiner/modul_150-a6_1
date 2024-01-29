@@ -15,11 +15,10 @@
                     <label for="homework-subject" class="col-sm-3 control-label">Subject</label>
 
                     <div class="col-sm-6">
-                        <select name="subject" id="homework-subject" class="form-control">
-                            <option value="Mathematik">Mathematik</option>
-                            <option value="Mathematik">Deutsch</option>
-                            <option value="Mathematik">Englisch</option>
-                            <option value="Mathematik">Naturwissenschaften</option>
+                        <select name="subject_id" id="homework-subject" class="form-control">
+                            @foreach ($subjects as $subject)
+                                <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -29,6 +28,13 @@
 
                     <div class="col-sm-6">
                         <input type="text" name="task" id="homework-task" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="homework-due" class="col-sm-3 control-label">Due</label>
+                    <div class="col-sm-6">
+                        <input type="date" name="due" id="homework-due" class="form-control">
                     </div>
                 </div>
                 
@@ -52,6 +58,7 @@
                     <thead>
                         <th>Homework</th>
                         <th>Subject</th>
+                        <th>Due</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -62,7 +69,10 @@
                                     <div>{{ $homework_item->task }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $homework_item->subject }}</div>
+                                    <div>{{ $homework_item->subject->name }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ \Carbon\Carbon::parse($homework_item->due)->format('d. M Y') }}</div>
                                 </td>
 
                                 <td>
