@@ -35,10 +35,19 @@ services:
       MYSQL_PASSWORD: "app"
       MYSQL_DATABASE: "m150"
 
+<<<<<<< Updated upstream
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
       PMA_HOSTS: db
+=======
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            PMA_HOSTS: db
+        depends_on: 
+            - db
+>>>>>>> Stashed changes
 
     restart: always
     ports:
